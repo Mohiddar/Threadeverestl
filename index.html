@@ -90,6 +90,7 @@
     height: 42px;
     width: auto;
     display: block;
+    filter: invert(1) brightness(2);
     object-fit: contain;
   }
   .nav-links { display: flex; gap: 2.5rem; list-style: none; }
@@ -156,24 +157,6 @@
     transition: opacity 0.2s;
   }
   .nav-hamburger:hover span { opacity: 0.7; }
-
-  .mobile-nav-cta {
-    display: none;
-    background: var(--accent);
-    color: var(--white);
-    font-family: 'Barlow Condensed', sans-serif;
-    font-weight: 700;
-    font-size: 0.85rem;
-    letter-spacing: 0.1em;
-    text-transform: uppercase;
-    padding: 0.55rem 1.1rem;
-    border-radius: 3px;
-    text-decoration: none;
-    white-space: nowrap;
-  }
-  @media (max-width: 900px) {
-    .mobile-nav-cta { display: inline-block; }
-  }
 
   /* MOBILE MENU */
   .mobile-menu {
@@ -446,12 +429,11 @@
     border-radius: 4px;
     overflow: hidden;
   }
-  .cap-image img, .cap-image video {
+  .cap-image img {
     width: 100%;
     aspect-ratio: 4/5;
     object-fit: cover;
     filter: brightness(0.85);
-    display: block;
   }
   .cap-image-tag {
     position: absolute;
@@ -642,108 +624,6 @@
   }
   .badge-sub { font-size: 0.72rem; color: var(--muted); margin-top: 0.2rem; letter-spacing: 0.05em; font-weight: 300; }
 
-  /* INQUIRY FORM */
-  .contact-divider {
-    display: flex;
-    align-items: center;
-    gap: 1rem;
-    margin: 2.5rem 0 2rem;
-    color: var(--muted);
-    font-size: 0.68rem;
-    font-weight: 700;
-    letter-spacing: 0.15em;
-    text-transform: uppercase;
-  }
-  .contact-divider::before, .contact-divider::after {
-    content: '';
-    flex: 1;
-    height: 1px;
-    background: var(--border);
-  }
-  .inquiry-form { display: flex; flex-direction: column; gap: 1.6rem; }
-  .form-field label {
-    display: block;
-    font-family: 'Barlow Condensed', sans-serif;
-    font-weight: 700;
-    font-size: 0.7rem;
-    letter-spacing: 0.16em;
-    text-transform: uppercase;
-    color: var(--muted);
-    margin-bottom: 0.65rem;
-  }
-  .field-box { position: relative; }
-  .field-box .corner {
-    position: absolute;
-    width: 9px; height: 9px;
-    border-color: rgba(255,255,255,0.18);
-    transition: border-color 0.2s;
-    pointer-events: none;
-  }
-  .field-box .corner.tl { top: -1px; left: -1px; border-top: 1px solid; border-left: 1px solid; }
-  .field-box .corner.tr { top: -1px; right: -1px; border-top: 1px solid; border-right: 1px solid; }
-  .field-box .corner.bl { bottom: -1px; left: -1px; border-bottom: 1px solid; border-left: 1px solid; }
-  .field-box .corner.br { bottom: -1px; right: -1px; border-bottom: 1px solid; border-right: 1px solid; }
-  .field-box:focus-within .corner { border-color: var(--accent); }
-  .field-box input, .field-box select, .field-box textarea {
-    width: 100%;
-    background: var(--card);
-    border: 1px solid var(--border);
-    color: var(--white);
-    font-family: 'Barlow', sans-serif;
-    font-size: 0.95rem;
-    font-weight: 400;
-    padding: 1rem 1.1rem;
-    border-radius: 2px;
-    outline: none;
-    transition: border-color 0.2s;
-  }
-  .field-box input::placeholder, .field-box textarea::placeholder { color: rgba(138,147,166,0.55); }
-  .field-box input:focus, .field-box select:focus, .field-box textarea:focus { border-color: rgba(232,49,42,0.4); }
-  .field-box textarea { resize: vertical; min-height: 120px; line-height: 1.6; }
-  .field-box.select-wrap select {
-    appearance: none;
-    -webkit-appearance: none;
-    cursor: pointer;
-    padding-right: 2.5rem;
-  }
-  .field-box.select-wrap select option { background: var(--card); color: var(--white); }
-  .field-box.select-wrap::after {
-    content: '▾';
-    position: absolute;
-    right: 1.1rem; top: 50%;
-    transform: translateY(-50%);
-    color: var(--muted);
-    pointer-events: none;
-    font-size: 0.85rem;
-  }
-  .form-submit-btn {
-    background: var(--accent);
-    color: var(--white);
-    font-family: 'Barlow Condensed', sans-serif;
-    font-weight: 700;
-    font-size: 1rem;
-    letter-spacing: 0.1em;
-    text-transform: uppercase;
-    border: none;
-    cursor: pointer;
-    padding: 1.05rem;
-    border-radius: 2px;
-    transition: background 0.2s, opacity 0.2s;
-    width: 100%;
-  }
-  .form-submit-btn:hover { background: #c4271f; }
-  .form-submit-btn:disabled { opacity: 0.6; cursor: not-allowed; }
-  .form-status {
-    font-size: 0.85rem;
-    font-weight: 500;
-    padding: 0.9rem 1.1rem;
-    border-radius: 2px;
-    display: none;
-    line-height: 1.5;
-  }
-  .form-status.success { display: block; border: 1px solid rgba(110,231,160,0.3); background: rgba(110,231,160,0.07); color: #6EE7A0; }
-  .form-status.error { display: block; border: 1px solid rgba(232,49,42,0.3); background: rgba(232,49,42,0.08); color: #FF8A82; }
-
   /* FOOTER */
   footer {
     border-top: 1px solid var(--border);
@@ -770,7 +650,6 @@
 
   /* RESPONSIVE */
   @media (max-width: 900px) {
-    nav { justify-content: space-between; padding: 6px 5%; }
     .nav-links { display: none; }
     .cap-grid, .contact-grid { grid-template-columns: 1fr; }
     .cap-image { order: -1; }
@@ -783,10 +662,6 @@
     .hero-stats { gap: 1.5rem; }
   }
   @media (max-width: 600px) {
-    nav { height: 70px; padding: 0 5%; }
-    .nav-logo-img { height: 70px; }
-    .hero { padding-top: 106px; }
-    .mobile-menu { top: 106px; }
     section { padding: 70px 5%; }
     .why-grid { grid-template-columns: 1fr; }
     .photo-strip { grid-template-columns: 1fr; }
@@ -820,15 +695,15 @@
 <!-- NAV -->
 <nav>
   <a href="#" class="nav-logo">
-    <img src="logo.png" alt="ThreadEverest" class="nav-logo-img">
+    <img src="7cfdbef4-4f2d-4bff-b112-90d3f85cb54b.jpeg" alt="ThreadEverest" class="nav-logo-img">
   </a>
   <ul class="nav-links">
-    <li><a href="#sports">Sports</a></li>
+    <li><a href="#sports">Sports Wear</a></li>
+    <li><a href="#casual">Casual Wear</a></li>
     <li><a href="#capabilities">Capabilities</a></li>
     <li><a href="#why">Why Us</a></li>
     <li><a href="#contact" class="nav-cta">Get a Quote</a></li>
   </ul>
-  <a href="#contact" class="mobile-nav-cta">Get a Quote</a>
 </nav>
 
 <!-- MOBILE MENU -->
@@ -861,10 +736,10 @@
   </div>
 </section>
 
-<!-- SPORTS -->
+<!-- SPORTS WEAR -->
 <section id="sports">
   <div class="sports-header">
-    <div class="section-tag">What We Make</div>
+    <div class="section-tag">Sports Wear</div>
     <h2 class="section-title">Every Sport.<br><em>Every Position.</em></h2>
     <p>From full uniform sets to individual jerseys — fully customized with your colors, logos, names, and numbers.</p>
   </div>
@@ -938,79 +813,90 @@
       <div class="sport-card-content">
         <div class="sport-card-label">Men's & Women's Cuts</div>
         <h3>Volleyball & More</h3>
-        <p>Wrestling, rugby, cricket & more</p>
+        <p>Paintball, wrestling, lacrosse, softball & more</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- CASUAL WEAR -->
+<section id="casual" style="background: var(--black);">
+  <div class="sports-header">
+    <div class="section-tag">Casual Wear</div>
+    <h2 class="section-title">Streetwear.<br><em>Your Brand.</em></h2>
+    <p>From everyday essentials to full streetwear collections — custom branded and built to your spec.</p>
+  </div>
+  <div class="sports-grid">
+    <div class="sport-card">
+      <img src="https://images.unsplash.com/photo-1556821840-3a63f15732ce?w=600&q=80" alt="Hoodies">
+      <div class="sport-card-overlay"></div>
+      <div class="sport-card-content">
+        <div class="sport-card-label">Custom Branding</div>
+        <h3>Hoodies & Sweatshirts</h3>
+        <p>Pullover & zip-up styles with embroidery or print</p>
       </div>
     </div>
     <div class="sport-card">
-      <img src="https://images.unsplash.com/photo-1531951844469-c0ac27049ad0?w=600&q=80" alt="Lacrosse">
+      <img src="https://images.unsplash.com/photo-1620799140408-edc6dcb6d633?w=600&q=80" alt="T-Shirts">
       <div class="sport-card-overlay"></div>
       <div class="sport-card-content">
-        <div class="sport-card-label">Custom Mesh & Numbers</div>
-        <h3>Lacrosse Uniforms</h3>
-        <p>Jerseys, shorts, and pinnies for club and school teams</p>
+        <div class="sport-card-label">OEM & Private Label</div>
+        <h3>T-Shirts & Polos</h3>
+        <p>Premium blanks with custom prints, logos & labels</p>
       </div>
     </div>
     <div class="sport-card">
-      <img src="https://images.unsplash.com/photo-1517649763962-0c623066013b?w=600&q=80" alt="Cycling">
+      <img src="https://images.unsplash.com/photo-1552902865-b72c031ac5ea?w=600&q=80" alt="Joggers">
       <div class="sport-card-overlay"></div>
       <div class="sport-card-content">
-        <div class="sport-card-label">Sublimated & Aero-Fit</div>
-        <h3>Cycling Kits</h3>
-        <p>Jerseys, bibs, and full team race kits</p>
+        <div class="sport-card-label">Full Sets Available</div>
+        <h3>Joggers & Sweatpants</h3>
+        <p>Matching sets and standalone bottoms for any brand</p>
       </div>
     </div>
     <div class="sport-card">
-      <img src="https://images.unsplash.com/photo-1550024733-e72f7e3ca906?w=600&q=80" alt="Paintball">
+      <img src="https://images.unsplash.com/photo-1591047139829-d91aecb6caea?w=600&q=80" alt="Tracksuits">
       <div class="sport-card-overlay"></div>
       <div class="sport-card-content">
-        <div class="sport-card-label">Team Colors & Logos</div>
-        <h3>Paintball Jerseys</h3>
-        <p>Pro-cut jerseys and pants for squads</p>
+        <div class="sport-card-label">Matching Sets</div>
+        <h3>Tracksuits</h3>
+        <p>Full zip jackets & pants in any colorway</p>
       </div>
     </div>
     <div class="sport-card">
-      <img src="https://images.unsplash.com/photo-1542751371-adc38448a05e?w=600&q=80" alt="Esports">
+      <img src="https://images.unsplash.com/photo-1542272604-787c3835535d?w=600&q=80" alt="Shorts">
       <div class="sport-card-overlay"></div>
       <div class="sport-card-content">
-        <div class="sport-card-label">Org & Streamer Branding</div>
-        <h3>Esports Jerseys</h3>
-        <p>Custom jerseys for competitive gaming teams</p>
+        <div class="sport-card-label">All Cuts</div>
+        <h3>Shorts & Cargo Pants</h3>
+        <p>Street-ready bottoms with custom pockets & details</p>
       </div>
     </div>
     <div class="sport-card">
-      <img src="https://images.unsplash.com/photo-1650418454432-2d2d9e06c748?w=600&q=80" alt="Softball">
+      <img src="https://images.unsplash.com/photo-1578587018452-892bacefd3f2?w=600&q=80" alt="Jackets">
       <div class="sport-card-overlay"></div>
       <div class="sport-card-content">
-        <div class="sport-card-label">Pro-Style Cuts</div>
-        <h3>Softball Uniforms</h3>
-        <p>Jerseys, pants, and full team sets</p>
+        <div class="sport-card-label">Outerwear</div>
+        <h3>Jackets & Bombers</h3>
+        <p>Windbreakers, varsity, and bomber styles</p>
       </div>
     </div>
     <div class="sport-card">
-      <img src="https://images.unsplash.com/photo-1454261577181-6a1b117efbe4?w=600&q=80" alt="Netball">
+      <img src="https://images.unsplash.com/photo-1562157873-818bc0726f68?w=600&q=80" alt="Streetwear">
       <div class="sport-card-overlay"></div>
       <div class="sport-card-content">
-        <div class="sport-card-label">Dresses & Bodysuits</div>
-        <h3>Netball Uniforms</h3>
-        <p>Custom dresses, skirts, and bodysuits</p>
+        <div class="sport-card-label">Full Collections</div>
+        <h3>Streetwear Sets</h3>
+        <p>Complete seasonal drops for your brand</p>
       </div>
     </div>
     <div class="sport-card">
-      <img src="https://images.unsplash.com/photo-1593029352324-5d8a5230d224?w=600&q=80" alt="Roller Derby">
+      <img src="https://images.unsplash.com/photo-1603252109303-2751441dd157?w=600&q=80" alt="Caps">
       <div class="sport-card-overlay"></div>
       <div class="sport-card-content">
-        <div class="sport-card-label">League & Team Kits</div>
-        <h3>Roller Derby</h3>
-        <p>Custom jerseys and shorts for leagues</p>
-      </div>
-    </div>
-    <div class="sport-card">
-      <img src="https://images.unsplash.com/photo-1593341646782-e0b495cff86d?w=600&q=80" alt="Cricket">
-      <div class="sport-card-overlay"></div>
-      <div class="sport-card-content">
-        <div class="sport-card-label">Whites & Colored Kits</div>
-        <h3>Cricket Uniforms</h3>
-        <p>Custom kits for clubs, academies, and leagues</p>
+        <div class="sport-card-label">Accessories</div>
+        <h3>Caps & Beanies</h3>
+        <p>Embroidered headwear to complete any collection</p>
       </div>
     </div>
   </div>
@@ -1022,9 +908,7 @@
   <h2 class="section-title">Full Custom.<br><em>Start to Finish.</em></h2>
   <div class="cap-grid">
     <div class="cap-image">
-      <video autoplay loop muted playsinline poster="factory-manufacturing-poster.jpg">
-        <source src="factory-manufacturing.mp4" type="video/mp4">
-      </video>
+      <img src="https://images.unsplash.com/photo-1504328345606-18bbc8c9d7d1?w=800&q=80" alt="Manufacturing">
       <div class="cap-image-tag">Direct Factory</div>
     </div>
     <div class="cap-list">
@@ -1143,65 +1027,6 @@
           </div>
         </a>
       </div>
-
-      <div class="contact-divider">Or send a detailed request</div>
-
-      <form class="inquiry-form" id="inquiryForm">
-        <input type="text" name="_honey" style="display:none" tabindex="-1" autocomplete="off">
-        <input type="hidden" name="_subject" value="New Inquiry — ThreadEverest Website">
-        <input type="hidden" name="_captcha" value="false">
-        <input type="hidden" name="_template" value="table">
-
-        <div class="form-field">
-          <label for="inq-name">Name</label>
-          <div class="field-box">
-            <span class="corner tl"></span><span class="corner tr"></span><span class="corner bl"></span><span class="corner br"></span>
-            <input type="text" id="inq-name" name="name" placeholder="Your name" required>
-          </div>
-        </div>
-
-        <div class="form-field">
-          <label for="inq-email">Email Address</label>
-          <div class="field-box">
-            <span class="corner tl"></span><span class="corner tr"></span><span class="corner bl"></span><span class="corner br"></span>
-            <input type="email" id="inq-email" name="email" placeholder="you@email.com" required>
-          </div>
-        </div>
-
-        <div class="form-field">
-          <label for="inq-org">Team, School, or Brand Name</label>
-          <div class="field-box">
-            <span class="corner tl"></span><span class="corner tr"></span><span class="corner bl"></span><span class="corner br"></span>
-            <input type="text" id="inq-org" name="organization" placeholder="e.g. Lincoln High Football">
-          </div>
-        </div>
-
-        <div class="form-field">
-          <label for="inq-type">Inquiry Type</label>
-          <div class="field-box select-wrap">
-            <span class="corner tl"></span><span class="corner tr"></span><span class="corner bl"></span><span class="corner br"></span>
-            <select id="inq-type" name="inquiry_type" required>
-              <option value="" disabled selected>Select...</option>
-              <option value="Team Uniforms">Team Uniforms</option>
-              <option value="Private Label / OEM">Private Label / OEM</option>
-              <option value="Sample Request">Sample Request</option>
-              <option value="Reorder">Reorder</option>
-              <option value="Other">Other</option>
-            </select>
-          </div>
-        </div>
-
-        <div class="form-field">
-          <label for="inq-message">Message</label>
-          <div class="field-box">
-            <span class="corner tl"></span><span class="corner tr"></span><span class="corner bl"></span><span class="corner br"></span>
-            <textarea id="inq-message" name="message" placeholder="Tell us about your sport, quantity, colors, and timeline..." required></textarea>
-          </div>
-        </div>
-
-        <button type="submit" class="form-submit-btn" id="inquirySubmitBtn">Send Inquiry</button>
-        <div class="form-status" id="inquiryStatus"></div>
-      </form>
     </div>
     <div class="contact-image">
       <img src="https://images.unsplash.com/photo-1607082348824-0a96f2a4b9da?w=700&q=80" alt="Factory">
@@ -1228,45 +1053,6 @@
 <script>
   function toggleMenu() {
     document.getElementById('mobileMenu').classList.toggle('open');
-  }
-
-  var inquiryForm = document.getElementById('inquiryForm');
-  if (inquiryForm) {
-    inquiryForm.addEventListener('submit', function (e) {
-      e.preventDefault();
-
-      var btn = document.getElementById('inquirySubmitBtn');
-      var status = document.getElementById('inquiryStatus');
-      var data = Object.fromEntries(new FormData(inquiryForm).entries());
-
-      btn.disabled = true;
-      btn.textContent = 'Sending...';
-      status.className = 'form-status';
-      status.textContent = '';
-
-      fetch('https://formsubmit.co/ajax/threadeverest@gmail.com', {
-        method: 'POST',
-        headers: {
-          'Content-Type': 'application/json',
-          'Accept': 'application/json'
-        },
-        body: JSON.stringify(data)
-      })
-        .then(function (res) { return res.json(); })
-        .then(function () {
-          status.className = 'form-status success';
-          status.textContent = "Sent. We'll reply within 24 hours.";
-          inquiryForm.reset();
-        })
-        .catch(function () {
-          status.className = 'form-status error';
-          status.textContent = 'Something went wrong — message us on WhatsApp instead.';
-        })
-        .finally(function () {
-          btn.disabled = false;
-          btn.textContent = 'Send Inquiry';
-        });
-    });
   }
 </script>
 </body>
