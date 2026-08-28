@@ -221,6 +221,18 @@
     animation: heroZoom 12s ease-out forwards;
   }
   @keyframes heroZoom { to { transform: scale(1); } }
+
+  /* VIDEO SECTION */
+  .hero-video-section {
+    width: 100%;
+    background: var(--black);
+  }
+  .hero-video-section video {
+    width: 100%;
+    max-height: 70vh;
+    object-fit: cover;
+    display: block;
+  }
   .hero-overlay {
     position: absolute; inset: 0;
     background: linear-gradient(105deg, rgba(8,10,14,0.85) 40%, transparent 100%);
@@ -813,10 +825,17 @@
     <p>Full-custom uniforms and jerseys for teams, coaches, and brands. Sublimation printing, low MOQs, worldwide shipping direct from factory.</p>
     <div class="hero-btns">
       <a href="#contact" class="btn-primary">Get a Quote</a>
-      <a href="#sports" class="btn-ghost">View Sports</a>
+      <a href="#sports" class="btn-ghost">View Categories</a>
     </div>
   </div>
 </section>
+
+<!-- VIDEO SECTION -->
+<div class="hero-video-section">
+  <video autoplay muted loop playsinline>
+    <source src="waqiahentp_pindown.io_1787877716.mp4" type="video/mp4">
+  </video>
+</div>
 
 <!-- CATEGORIES SECTION -->
 <section id="sports" style="background: var(--dark); padding-bottom: 0;">
@@ -883,7 +902,7 @@
     </div>
     <div class="sports-grid">
       <div class="sport-card">
-        <img src="https://images.unsplash.com/photo-1566577739112-5180d4bf9390?w=600&q=80" alt="Football">
+        <img src="https://images.unsplash.com/photo-1508098682722-e99c43a406b2?w=600&q=80" alt="Football Uniforms">
         <div class="sport-card-overlay"></div>
         <div class="sport-card-content">
           <div class="sport-card-label">Full Kits Available</div>
@@ -892,7 +911,7 @@
         </div>
       </div>
       <div class="sport-card">
-        <img src="https://images.unsplash.com/photo-1546519638-68e109498ffc?w=600&q=80" alt="Basketball">
+        <img src="https://images.unsplash.com/photo-1504450758481-7338eba7524a?w=600&q=80" alt="Basketball Uniforms">
         <div class="sport-card-overlay"></div>
         <div class="sport-card-content">
           <div class="sport-card-label">Reversible Options</div>
@@ -901,7 +920,7 @@
         </div>
       </div>
       <div class="sport-card">
-        <img src="https://images.unsplash.com/photo-1574629810360-7efbbe195018?w=600&q=80" alt="Soccer">
+        <img src="https://images.unsplash.com/photo-1553778263-73a83bab9b0c?w=600&q=80" alt="Soccer Uniforms">
         <div class="sport-card-overlay"></div>
         <div class="sport-card-content">
           <div class="sport-card-label">Complete Kits</div>
@@ -910,7 +929,7 @@
         </div>
       </div>
       <div class="sport-card">
-        <img src="https://images.unsplash.com/photo-1508344928928-7165b67de128?w=600&q=80" alt="Baseball">
+        <img src="https://images.unsplash.com/photo-1543941932-5b06673b7f15?w=600&q=80" alt="Baseball Uniforms">
         <div class="sport-card-overlay"></div>
         <div class="sport-card-content">
           <div class="sport-card-label">Pro-Style Cuts</div>
@@ -919,7 +938,7 @@
         </div>
       </div>
       <div class="sport-card">
-        <img src="https://images.unsplash.com/photo-1515703407324-5f753afd8be8?w=600&q=80" alt="Hockey">
+        <img src="https://images.unsplash.com/photo-1515703407324-5f753afd8be8?w=600&q=80" alt="Ice Hockey Jerseys">
         <div class="sport-card-overlay"></div>
         <div class="sport-card-content">
           <div class="sport-card-label">Pro-Grade Sublimation</div>
@@ -928,7 +947,7 @@
         </div>
       </div>
       <div class="sport-card">
-        <img src="https://images.unsplash.com/photo-1612872087720-bb876e2e67d1?w=600&q=80" alt="Volleyball">
+        <img src="https://images.unsplash.com/photo-1612872087720-bb876e2e67d1?w=600&q=80" alt="Volleyball Uniforms">
         <div class="sport-card-overlay"></div>
         <div class="sport-card-content">
           <div class="sport-card-label">Men's & Women's Cuts</div>
@@ -937,7 +956,7 @@
         </div>
       </div>
       <div class="sport-card">
-        <img src="https://images.unsplash.com/photo-1529516548873-9ce57c8f155e?w=600&q=80" alt="Softball">
+        <img src="https://images.unsplash.com/photo-1529516548873-9ce57c8f155e?w=600&q=80" alt="Softball Uniforms">
         <div class="sport-card-overlay"></div>
         <div class="sport-card-content">
           <div class="sport-card-label">Full Kits</div>
@@ -946,7 +965,7 @@
         </div>
       </div>
       <div class="sport-card">
-        <img src="https://images.unsplash.com/photo-1551698618-1dfe5d97d256?w=600&q=80" alt="Paintball">
+        <img src="https://images.unsplash.com/photo-1607457561901-e6ec3a6d16cf?w=600&q=80" alt="Paintball Jerseys">
         <div class="sport-card-overlay"></div>
         <div class="sport-card-content">
           <div class="sport-card-label">Custom Jerseys</div>
@@ -955,7 +974,7 @@
         </div>
       </div>
       <div class="sport-card">
-        <img src="https://images.unsplash.com/photo-1558618666-fcd25c85cd64?w=600&q=80" alt="Cycling">
+        <img src="https://images.unsplash.com/photo-1541625602330-2277a4c46182?w=600&q=80" alt="Cycling Kits">
         <div class="sport-card-overlay"></div>
         <div class="sport-card-content">
           <div class="sport-card-label">Aero Fit</div>
@@ -964,7 +983,7 @@
         </div>
       </div>
       <div class="sport-card">
-        <img src="https://images.unsplash.com/photo-1604480132736-44c188fe4d20?w=600&q=80" alt="Rugby">
+        <img src="https://images.unsplash.com/photo-1567598508481-65985588e295?w=600&q=80" alt="Rugby Jerseys">
         <div class="sport-card-overlay"></div>
         <div class="sport-card-content">
           <div class="sport-card-label">Heavy Duty</div>
@@ -984,7 +1003,7 @@
     </div>
     <div class="sports-grid">
       <div class="sport-card">
-        <img src="https://images.unsplash.com/photo-1620799140408-edc6dcb6d633?w=600&q=80" alt="T-Shirts">
+        <img src="https://images.unsplash.com/photo-1521572163474-6864f9cf17ab?w=600&q=80" alt="T-Shirts">
         <div class="sport-card-overlay"></div>
         <div class="sport-card-content">
           <div class="sport-card-label">OEM & Private Label</div>
@@ -993,7 +1012,7 @@
         </div>
       </div>
       <div class="sport-card">
-        <img src="https://images.unsplash.com/photo-1625910513526-c6a57779f5db?w=600&q=80" alt="Polos">
+        <img src="https://images.unsplash.com/photo-1586363104862-3a5e2ab60d99?w=600&q=80" alt="Polo Shirts">
         <div class="sport-card-overlay"></div>
         <div class="sport-card-content">
           <div class="sport-card-label">Custom Branding</div>
@@ -1002,7 +1021,7 @@
         </div>
       </div>
       <div class="sport-card">
-        <img src="https://images.unsplash.com/photo-1556821840-3a63f15732ce?w=600&q=80" alt="Hoodies">
+        <img src="https://images.unsplash.com/photo-1509942774463-acf339cf87d5?w=600&q=80" alt="Hoodies">
         <div class="sport-card-overlay"></div>
         <div class="sport-card-content">
           <div class="sport-card-label">Pullover & Zip-Up</div>
@@ -1020,7 +1039,7 @@
         </div>
       </div>
       <div class="sport-card">
-        <img src="https://images.unsplash.com/photo-1578587018452-892bacefd3f2?w=600&q=80" alt="Outerwear">
+        <img src="https://images.unsplash.com/photo-1548883354-94bcfe321cbb?w=600&q=80" alt="Outerwear">
         <div class="sport-card-overlay"></div>
         <div class="sport-card-content">
           <div class="sport-card-label">Outerwear</div>
@@ -1029,7 +1048,7 @@
         </div>
       </div>
       <div class="sport-card">
-        <img src="https://images.unsplash.com/photo-1591047139829-d91aecb6caea?w=600&q=80" alt="Tracksuits">
+        <img src="https://images.unsplash.com/photo-1611911813383-67769b37a149?w=600&q=80" alt="Tracksuits">
         <div class="sport-card-overlay"></div>
         <div class="sport-card-content">
           <div class="sport-card-label">Matching Sets</div>
@@ -1058,7 +1077,7 @@
         </div>
       </div>
       <div class="sport-card">
-        <img src="https://images.unsplash.com/photo-1509563268479-0f004cf3f58b?w=600&q=80" alt="MMA Shorts">
+        <img src="https://images.unsplash.com/photo-1588286840104-8957b019727f?w=600&q=80" alt="MMA Shorts">
         <div class="sport-card-overlay"></div>
         <div class="sport-card-content">
           <div class="sport-card-label">All Cuts</div>
@@ -1067,7 +1086,7 @@
         </div>
       </div>
       <div class="sport-card">
-        <img src="https://images.unsplash.com/photo-1616803689943-5601631c7fec?w=600&q=80" alt="Rashguards">
+        <img src="https://images.unsplash.com/photo-1598971861713-54ad16a7e72e?w=600&q=80" alt="Rashguards">
         <div class="sport-card-overlay"></div>
         <div class="sport-card-content">
           <div class="sport-card-label">Long & Short Sleeve</div>
@@ -1076,7 +1095,7 @@
         </div>
       </div>
       <div class="sport-card">
-        <img src="https://images.unsplash.com/photo-1599058945522-28d584b6f0ff?w=600&q=80" alt="Muay Thai">
+        <img src="https://images.unsplash.com/photo-1599058917212-d750089bc07e?w=600&q=80" alt="Muay Thai Shorts">
         <div class="sport-card-overlay"></div>
         <div class="sport-card-content">
           <div class="sport-card-label">Traditional & Modern</div>
@@ -1085,7 +1104,7 @@
         </div>
       </div>
       <div class="sport-card">
-        <img src="https://images.unsplash.com/photo-1544367567-0f2fcb009e0b?w=600&q=80" alt="Boxing">
+        <img src="https://images.unsplash.com/photo-1544367567-0f2fcb009e0b?w=600&q=80" alt="Boxing Trunks">
         <div class="sport-card-overlay"></div>
         <div class="sport-card-content">
           <div class="sport-card-label">Custom Branding</div>
@@ -1094,7 +1113,7 @@
         </div>
       </div>
       <div class="sport-card">
-        <img src="https://images.unsplash.com/photo-1517836357463-d25dfeac3438?w=600&q=80" alt="Compression">
+        <img src="https://images.unsplash.com/photo-1581009146145-b5ef050c2e1e?w=600&q=80" alt="Vale Tudo Shorts">
         <div class="sport-card-overlay"></div>
         <div class="sport-card-content">
           <div class="sport-card-label">Fight Base Layer</div>
@@ -1114,7 +1133,7 @@
     </div>
     <div class="sports-grid">
       <div class="sport-card">
-        <img src="https://images.unsplash.com/photo-1534438327276-14e5300c3a48?w=600&q=80" alt="Compression">
+        <img src="https://images.unsplash.com/photo-1506629082955-511b1aa562c8?w=600&q=80" alt="Compression Tights">
         <div class="sport-card-overlay"></div>
         <div class="sport-card-content">
           <div class="sport-card-label">Performance Fit</div>
@@ -1141,7 +1160,7 @@
         </div>
       </div>
       <div class="sport-card">
-        <img src="https://images.unsplash.com/photo-1506629082955-511b1aa562c8?w=600&q=80" alt="Golf">
+        <img src="https://images.unsplash.com/photo-1535131749006-b7f58c99034b?w=600&q=80" alt="Golf Wear">
         <div class="sport-card-overlay"></div>
         <div class="sport-card-content">
           <div class="sport-card-label">On The Green</div>
@@ -1150,7 +1169,7 @@
         </div>
       </div>
       <div class="sport-card">
-        <img src="https://images.unsplash.com/photo-1583454110551-21f2fa2afe61?w=600&q=80" alt="Gym Shorts">
+        <img src="https://images.unsplash.com/photo-1483721310020-03333e577078?w=600&q=80" alt="Gym Shorts">
         <div class="sport-card-overlay"></div>
         <div class="sport-card-content">
           <div class="sport-card-label">Training Ready</div>
@@ -1159,7 +1178,7 @@
         </div>
       </div>
       <div class="sport-card">
-        <img src="https://images.unsplash.com/photo-1551698618-1dfe5d97d256?w=600&q=80" alt="Tracksuits">
+        <img src="https://images.unsplash.com/photo-1576678927484-cc907957088c?w=600&q=80" alt="Training Tracksuits">
         <div class="sport-card-overlay"></div>
         <div class="sport-card-content">
           <div class="sport-card-label">Warm Up</div>
@@ -1178,9 +1197,7 @@
   <h2 class="section-title">Full Custom.<br><em>Start to Finish.</em></h2>
   <div class="cap-grid">
     <div class="cap-image">
-      <video autoplay muted loop playsinline style="width:100%; aspect-ratio:4/5; object-fit:cover; filter:brightness(0.85); border-radius:4px;">
-        <source src="waqiahentp_pindown.io_1787877716.mp4" type="video/mp4">
-      </video>
+      <img src="https://images.unsplash.com/photo-1504328345606-18bbc8c9d7d1?w=800&q=80" alt="Manufacturing" style="width:100%; aspect-ratio:4/5; object-fit:cover; filter:brightness(0.85); border-radius:4px;">
       <div class="cap-image-tag">Direct Factory</div>
     </div>
     <div class="cap-list">
