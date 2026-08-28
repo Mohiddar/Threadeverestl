@@ -348,6 +348,88 @@
   }
   .section-title em { font-style: italic; color: var(--accent); }
 
+  /* CATEGORY CARDS */
+  .cat-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 4px;
+    margin-top: 3rem;
+  }
+  .cat-card {
+    position: relative;
+    aspect-ratio: 4/3;
+    overflow: hidden;
+    cursor: pointer;
+    background: var(--card);
+  }
+  .cat-card img {
+    width: 100%; height: 100%;
+    object-fit: cover;
+    transition: transform 0.5s ease, filter 0.3s;
+    filter: brightness(0.45) saturate(0.6);
+  }
+  .cat-card:hover img, .cat-card.active img {
+    transform: scale(1.04);
+    filter: brightness(0.35) saturate(0.5);
+  }
+  .cat-overlay {
+    position: absolute; inset: 0;
+    background: linear-gradient(to top, rgba(8,10,14,0.97) 0%, rgba(8,10,14,0.2) 100%);
+  }
+  .cat-card.active .cat-overlay {
+    background: linear-gradient(to top, rgba(232,49,42,0.5) 0%, rgba(8,10,14,0.3) 100%);
+  }
+  .cat-content {
+    position: absolute; inset: 0;
+    padding: 1.5rem;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
+  }
+  .cat-num {
+    font-family: 'Barlow Condensed', sans-serif;
+    font-weight: 900;
+    font-size: 0.7rem;
+    color: var(--accent);
+    letter-spacing: 0.15em;
+    margin-bottom: 0.5rem;
+  }
+  .cat-content h3 {
+    font-family: 'Barlow Condensed', sans-serif;
+    font-weight: 900;
+    font-size: clamp(1.3rem, 3vw, 2rem);
+    text-transform: uppercase;
+    line-height: 1.0;
+    margin-bottom: 0.6rem;
+  }
+  .cat-sub {
+    font-size: 0.65rem;
+    color: rgba(245,247,250,0.55);
+    letter-spacing: 0.1em;
+    font-weight: 600;
+    line-height: 1.6;
+    margin-bottom: 0.8rem;
+  }
+  .cat-arrow {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 34px; height: 34px;
+    border: 1px solid rgba(255,255,255,0.3);
+    border-radius: 2px;
+    font-size: 1rem;
+    color: var(--white);
+    transition: background 0.2s, border-color 0.2s;
+  }
+  .cat-card.active .cat-arrow, .cat-card:hover .cat-arrow {
+    background: var(--accent);
+    border-color: var(--accent);
+  }
+
+  /* PRODUCT PANELS */
+  .product-section { display: none; }
+  .product-section.active { display: block; }
+
   /* SPORTS GRID */
   #sports { background: var(--dark); }
   .sports-header { max-width: 600px; margin-bottom: 4rem; }
@@ -736,170 +818,358 @@
   </div>
 </section>
 
-<!-- SPORTS WEAR -->
-<section id="sports">
+<!-- CATEGORIES SECTION -->
+<section id="sports" style="background: var(--dark); padding-bottom: 0;">
   <div class="sports-header">
-    <div class="section-tag">Sports Wear</div>
-    <h2 class="section-title">Every Sport.<br><em>Every Position.</em></h2>
-    <p>From full uniform sets to individual jerseys — fully customized with your colors, logos, names, and numbers.</p>
+    <div class="section-tag">What We Make</div>
+    <h2 class="section-title">Built For<br><em>Every Category.</em></h2>
+    <p>Tap a category to explore everything we make — fully custom, direct from factory.</p>
   </div>
-  <div class="sports-grid">
-    <div class="sport-card">
-      <img src="https://images.unsplash.com/photo-1566577739112-5180d4bf9390?w=600&q=80" alt="Football">
-      <div class="sport-card-overlay"></div>
-      <div class="sport-card-content">
-        <div class="sport-card-label">Full Kits Available</div>
-        <h3>Football Uniforms</h3>
-        <p>Jersey, pants, and full sets for tackle & 7v7</p>
+
+  <!-- CATEGORY CARDS -->
+  <div class="cat-grid">
+    <div class="cat-card active" onclick="showCategory('teamSports')">
+      <img src="https://images.unsplash.com/photo-1574629810360-7efbbe195018?w=800&q=80" alt="Team Sports">
+      <div class="cat-overlay"></div>
+      <div class="cat-content">
+        <div class="cat-num">01</div>
+        <h3>Team Sports<br>& Uniforms</h3>
+        <p class="cat-sub">SOCCER · BASKETBALL · RUGBY · CYCLING</p>
+        <div class="cat-arrow">→</div>
       </div>
     </div>
-    <div class="sport-card">
-      <img src="https://images.unsplash.com/photo-1546519638-68e109498ffc?w=600&q=80" alt="Basketball">
-      <div class="sport-card-overlay"></div>
-      <div class="sport-card-content">
-        <div class="sport-card-label">Reversible Options</div>
-        <h3>Basketball Uniforms</h3>
-        <p>Jerseys and shorts for full teams</p>
+    <div class="cat-card" onclick="showCategory('casualWear')">
+      <img src="https://images.unsplash.com/photo-1556821840-3a63f15732ce?w=800&q=80" alt="Casual Wear">
+      <div class="cat-overlay"></div>
+      <div class="cat-content">
+        <div class="cat-num">02</div>
+        <h3>Casual<br>Wear</h3>
+        <p class="cat-sub">TEES · POLOS · HOODIES · BOTTOMS</p>
+        <div class="cat-arrow">→</div>
       </div>
     </div>
-    <div class="sport-card">
-      <img src="https://images.unsplash.com/photo-1574629810360-7efbbe195018?w=600&q=80" alt="Soccer">
-      <div class="sport-card-overlay"></div>
-      <div class="sport-card-content">
-        <div class="sport-card-label">Complete Kits</div>
-        <h3>Soccer Uniforms</h3>
-        <p>Jerseys, shorts, socks for any club or league</p>
+    <div class="cat-card" onclick="showCategory('fightWear')">
+      <img src="https://images.unsplash.com/photo-1555597673-b21d5c935865?w=800&q=80" alt="Fight Wear">
+      <div class="cat-overlay"></div>
+      <div class="cat-content">
+        <div class="cat-num">03</div>
+        <h3>Fight<br>Wear</h3>
+        <p class="cat-sub">RASHGUARDS · MMA · MUAY THAI · BJJ</p>
+        <div class="cat-arrow">→</div>
       </div>
     </div>
-    <div class="sport-card">
-      <img src="https://images.unsplash.com/photo-1508344928928-7165b67de128?w=600&q=80" alt="Baseball">
-      <div class="sport-card-overlay"></div>
-      <div class="sport-card-content">
-        <div class="sport-card-label">Pro-Style Cuts</div>
-        <h3>Baseball Uniforms</h3>
-        <p>Jerseys, pants, and full team sets</p>
-      </div>
-    </div>
-    <div class="sport-card">
-      <img src="https://images.unsplash.com/photo-1555597673-b21d5c935865?w=600&q=80" alt="Martial Arts">
-      <div class="sport-card-overlay"></div>
-      <div class="sport-card-content">
-        <div class="sport-card-label">BJJ · Judo · Karate</div>
-        <h3>Martial Arts Gis</h3>
-        <p>Custom patches, embroidery & branding</p>
-      </div>
-    </div>
-    <div class="sport-card">
-      <img src="https://images.unsplash.com/photo-1515703407324-5f753afd8be8?w=600&q=80" alt="Hockey">
-      <div class="sport-card-overlay"></div>
-      <div class="sport-card-content">
-        <div class="sport-card-label">Pro-Grade Sublimation</div>
-        <h3>Ice Hockey Jerseys</h3>
-        <p>Custom sublimation & team branding</p>
-      </div>
-    </div>
-    <div class="sport-card">
-      <img src="https://images.unsplash.com/photo-1534438327276-14e5300c3a48?w=600&q=80" alt="Training Gear">
-      <div class="sport-card-overlay"></div>
-      <div class="sport-card-content">
-        <div class="sport-card-label">Performance Wear</div>
-        <h3>Training Gear</h3>
-        <p>Compression, warm-up suits & athletic wear</p>
-      </div>
-    </div>
-    <div class="sport-card">
-      <img src="https://images.unsplash.com/photo-1612872087720-bb876e2e67d1?w=600&q=80" alt="Volleyball">
-      <div class="sport-card-overlay"></div>
-      <div class="sport-card-content">
-        <div class="sport-card-label">Men's & Women's Cuts</div>
-        <h3>Volleyball & More</h3>
-        <p>Paintball, wrestling, lacrosse, softball & more</p>
+    <div class="cat-card" onclick="showCategory('fitnessWear')">
+      <img src="https://images.unsplash.com/photo-1534438327276-14e5300c3a48?w=800&q=80" alt="Fitness Wear">
+      <div class="cat-overlay"></div>
+      <div class="cat-content">
+        <div class="cat-num">04</div>
+        <h3>Fitness &<br>Activewear</h3>
+        <p class="cat-sub">COMPRESSION · TANKS · TIGHTS · GOLF</p>
+        <div class="cat-arrow">→</div>
       </div>
     </div>
   </div>
 </section>
 
-<!-- CASUAL WEAR -->
-<section id="casual" style="background: var(--black);">
-  <div class="sports-header">
-    <div class="section-tag">Casual Wear</div>
-    <h2 class="section-title">Streetwear.<br><em>Your Brand.</em></h2>
-    <p>From everyday essentials to full streetwear collections — custom branded and built to your spec.</p>
+<!-- PRODUCTS PANEL -->
+<section id="products-panel" style="background: var(--black); padding-top: 60px;">
+
+  <!-- TEAM SPORTS -->
+  <div class="product-section active" id="teamSports">
+    <div class="sports-header">
+      <div class="section-tag">Team Sports & Uniforms</div>
+      <h2 class="section-title">Every Sport.<br><em>Every Position.</em></h2>
+      <p>Full uniform sets to individual jerseys — customized with your colors, logos, names, and numbers.</p>
+    </div>
+    <div class="sports-grid">
+      <div class="sport-card">
+        <img src="https://images.unsplash.com/photo-1566577739112-5180d4bf9390?w=600&q=80" alt="Football">
+        <div class="sport-card-overlay"></div>
+        <div class="sport-card-content">
+          <div class="sport-card-label">Full Kits Available</div>
+          <h3>Football Uniforms</h3>
+          <p>Jersey, pants, and full sets for tackle & 7v7</p>
+        </div>
+      </div>
+      <div class="sport-card">
+        <img src="https://images.unsplash.com/photo-1546519638-68e109498ffc?w=600&q=80" alt="Basketball">
+        <div class="sport-card-overlay"></div>
+        <div class="sport-card-content">
+          <div class="sport-card-label">Reversible Options</div>
+          <h3>Basketball Uniforms</h3>
+          <p>Jerseys and shorts for full teams</p>
+        </div>
+      </div>
+      <div class="sport-card">
+        <img src="https://images.unsplash.com/photo-1574629810360-7efbbe195018?w=600&q=80" alt="Soccer">
+        <div class="sport-card-overlay"></div>
+        <div class="sport-card-content">
+          <div class="sport-card-label">Complete Kits</div>
+          <h3>Soccer Uniforms</h3>
+          <p>Jerseys, shorts, socks for any club or league</p>
+        </div>
+      </div>
+      <div class="sport-card">
+        <img src="https://images.unsplash.com/photo-1508344928928-7165b67de128?w=600&q=80" alt="Baseball">
+        <div class="sport-card-overlay"></div>
+        <div class="sport-card-content">
+          <div class="sport-card-label">Pro-Style Cuts</div>
+          <h3>Baseball Uniforms</h3>
+          <p>Jerseys, pants, and full team sets</p>
+        </div>
+      </div>
+      <div class="sport-card">
+        <img src="https://images.unsplash.com/photo-1515703407324-5f753afd8be8?w=600&q=80" alt="Hockey">
+        <div class="sport-card-overlay"></div>
+        <div class="sport-card-content">
+          <div class="sport-card-label">Pro-Grade Sublimation</div>
+          <h3>Ice Hockey Jerseys</h3>
+          <p>Custom sublimation & team branding</p>
+        </div>
+      </div>
+      <div class="sport-card">
+        <img src="https://images.unsplash.com/photo-1612872087720-bb876e2e67d1?w=600&q=80" alt="Volleyball">
+        <div class="sport-card-overlay"></div>
+        <div class="sport-card-content">
+          <div class="sport-card-label">Men's & Women's Cuts</div>
+          <h3>Volleyball Uniforms</h3>
+          <p>Full team sets for indoor & beach volleyball</p>
+        </div>
+      </div>
+      <div class="sport-card">
+        <img src="https://images.unsplash.com/photo-1529516548873-9ce57c8f155e?w=600&q=80" alt="Softball">
+        <div class="sport-card-overlay"></div>
+        <div class="sport-card-content">
+          <div class="sport-card-label">Full Kits</div>
+          <h3>Softball Uniforms</h3>
+          <p>Jerseys, pants & caps for any softball team</p>
+        </div>
+      </div>
+      <div class="sport-card">
+        <img src="https://images.unsplash.com/photo-1551698618-1dfe5d97d256?w=600&q=80" alt="Paintball">
+        <div class="sport-card-overlay"></div>
+        <div class="sport-card-content">
+          <div class="sport-card-label">Custom Jerseys</div>
+          <h3>Paintball Jerseys</h3>
+          <p>Durable padded jerseys for tournament & rec play</p>
+        </div>
+      </div>
+      <div class="sport-card">
+        <img src="https://images.unsplash.com/photo-1558618666-fcd25c85cd64?w=600&q=80" alt="Cycling">
+        <div class="sport-card-overlay"></div>
+        <div class="sport-card-content">
+          <div class="sport-card-label">Aero Fit</div>
+          <h3>Cycling Kits</h3>
+          <p>Jerseys & bibs with sublimation & custom logos</p>
+        </div>
+      </div>
+      <div class="sport-card">
+        <img src="https://images.unsplash.com/photo-1604480132736-44c188fe4d20?w=600&q=80" alt="Rugby">
+        <div class="sport-card-overlay"></div>
+        <div class="sport-card-content">
+          <div class="sport-card-label">Heavy Duty</div>
+          <h3>Rugby Jerseys</h3>
+          <p>Durable cuts for union & league teams</p>
+        </div>
+      </div>
+    </div>
   </div>
-  <div class="sports-grid">
-    <div class="sport-card">
-      <img src="https://images.unsplash.com/photo-1556821840-3a63f15732ce?w=600&q=80" alt="Hoodies">
-      <div class="sport-card-overlay"></div>
-      <div class="sport-card-content">
-        <div class="sport-card-label">Custom Branding</div>
-        <h3>Hoodies & Sweatshirts</h3>
-        <p>Pullover & zip-up styles with embroidery or print</p>
-      </div>
+
+  <!-- CASUAL WEAR -->
+  <div class="product-section" id="casualWear">
+    <div class="sports-header">
+      <div class="section-tag">Casual Wear</div>
+      <h2 class="section-title">Streetwear.<br><em>Your Brand.</em></h2>
+      <p>From everyday essentials to full collections — custom branded and built to your spec.</p>
     </div>
-    <div class="sport-card">
-      <img src="https://images.unsplash.com/photo-1620799140408-edc6dcb6d633?w=600&q=80" alt="T-Shirts">
-      <div class="sport-card-overlay"></div>
-      <div class="sport-card-content">
-        <div class="sport-card-label">OEM & Private Label</div>
-        <h3>T-Shirts & Polos</h3>
-        <p>Premium blanks with custom prints, logos & labels</p>
+    <div class="sports-grid">
+      <div class="sport-card">
+        <img src="https://images.unsplash.com/photo-1620799140408-edc6dcb6d633?w=600&q=80" alt="T-Shirts">
+        <div class="sport-card-overlay"></div>
+        <div class="sport-card-content">
+          <div class="sport-card-label">OEM & Private Label</div>
+          <h3>T-Shirts</h3>
+          <p>Premium blanks with custom prints & labels</p>
+        </div>
       </div>
-    </div>
-    <div class="sport-card">
-      <img src="https://images.unsplash.com/photo-1552902865-b72c031ac5ea?w=600&q=80" alt="Joggers">
-      <div class="sport-card-overlay"></div>
-      <div class="sport-card-content">
-        <div class="sport-card-label">Full Sets Available</div>
-        <h3>Joggers & Sweatpants</h3>
-        <p>Matching sets and standalone bottoms for any brand</p>
+      <div class="sport-card">
+        <img src="https://images.unsplash.com/photo-1625910513526-c6a57779f5db?w=600&q=80" alt="Polos">
+        <div class="sport-card-overlay"></div>
+        <div class="sport-card-content">
+          <div class="sport-card-label">Custom Branding</div>
+          <h3>Polo Shirts</h3>
+          <p>Classic & slim-fit polos with embroidery or print</p>
+        </div>
       </div>
-    </div>
-    <div class="sport-card">
-      <img src="https://images.unsplash.com/photo-1591047139829-d91aecb6caea?w=600&q=80" alt="Tracksuits">
-      <div class="sport-card-overlay"></div>
-      <div class="sport-card-content">
-        <div class="sport-card-label">Matching Sets</div>
-        <h3>Tracksuits</h3>
-        <p>Full zip jackets & pants in any colorway</p>
+      <div class="sport-card">
+        <img src="https://images.unsplash.com/photo-1556821840-3a63f15732ce?w=600&q=80" alt="Hoodies">
+        <div class="sport-card-overlay"></div>
+        <div class="sport-card-content">
+          <div class="sport-card-label">Pullover & Zip-Up</div>
+          <h3>Hoodies & Sweatshirts</h3>
+          <p>Fleece & French terry with custom branding</p>
+        </div>
       </div>
-    </div>
-    <div class="sport-card">
-      <img src="https://images.unsplash.com/photo-1542272604-787c3835535d?w=600&q=80" alt="Shorts">
-      <div class="sport-card-overlay"></div>
-      <div class="sport-card-content">
-        <div class="sport-card-label">All Cuts</div>
-        <h3>Shorts & Cargo Pants</h3>
-        <p>Street-ready bottoms with custom pockets & details</p>
+      <div class="sport-card">
+        <img src="https://images.unsplash.com/photo-1552902865-b72c031ac5ea?w=600&q=80" alt="Bottoms">
+        <div class="sport-card-overlay"></div>
+        <div class="sport-card-content">
+          <div class="sport-card-label">Full Sets Available</div>
+          <h3>Bottoms</h3>
+          <p>Joggers, sweatpants & cargo pants in any colorway</p>
+        </div>
       </div>
-    </div>
-    <div class="sport-card">
-      <img src="https://images.unsplash.com/photo-1578587018452-892bacefd3f2?w=600&q=80" alt="Jackets">
-      <div class="sport-card-overlay"></div>
-      <div class="sport-card-content">
-        <div class="sport-card-label">Outerwear</div>
-        <h3>Jackets & Bombers</h3>
-        <p>Windbreakers, varsity, and bomber styles</p>
+      <div class="sport-card">
+        <img src="https://images.unsplash.com/photo-1578587018452-892bacefd3f2?w=600&q=80" alt="Outerwear">
+        <div class="sport-card-overlay"></div>
+        <div class="sport-card-content">
+          <div class="sport-card-label">Outerwear</div>
+          <h3>Jackets & Bombers</h3>
+          <p>Windbreakers, varsity & bomber styles</p>
+        </div>
       </div>
-    </div>
-    <div class="sport-card">
-      <img src="https://images.unsplash.com/photo-1562157873-818bc0726f68?w=600&q=80" alt="Streetwear">
-      <div class="sport-card-overlay"></div>
-      <div class="sport-card-content">
-        <div class="sport-card-label">Full Collections</div>
-        <h3>Streetwear Sets</h3>
-        <p>Complete seasonal drops for your brand</p>
-      </div>
-    </div>
-    <div class="sport-card">
-      <img src="https://images.unsplash.com/photo-1603252109303-2751441dd157?w=600&q=80" alt="Caps">
-      <div class="sport-card-overlay"></div>
-      <div class="sport-card-content">
-        <div class="sport-card-label">Accessories</div>
-        <h3>Caps & Beanies</h3>
-        <p>Embroidered headwear to complete any collection</p>
+      <div class="sport-card">
+        <img src="https://images.unsplash.com/photo-1591047139829-d91aecb6caea?w=600&q=80" alt="Tracksuits">
+        <div class="sport-card-overlay"></div>
+        <div class="sport-card-content">
+          <div class="sport-card-label">Matching Sets</div>
+          <h3>Tracksuits</h3>
+          <p>Full zip jacket & pants sets in any colorway</p>
+        </div>
       </div>
     </div>
   </div>
+
+  <!-- FIGHT WEAR -->
+  <div class="product-section" id="fightWear">
+    <div class="sports-header">
+      <div class="section-tag">Fight Wear</div>
+      <h2 class="section-title">Built For<br><em>The Fight.</em></h2>
+      <p>Custom fight gear for combat sports — built tough, branded your way.</p>
+    </div>
+    <div class="sports-grid">
+      <div class="sport-card">
+        <img src="https://images.unsplash.com/photo-1555597673-b21d5c935865?w=600&q=80" alt="BJJ Gis">
+        <div class="sport-card-overlay"></div>
+        <div class="sport-card-content">
+          <div class="sport-card-label">Custom Patches</div>
+          <h3>BJJ Gis</h3>
+          <p>Competition & training gis with custom branding</p>
+        </div>
+      </div>
+      <div class="sport-card">
+        <img src="https://images.unsplash.com/photo-1509563268479-0f004cf3f58b?w=600&q=80" alt="MMA Shorts">
+        <div class="sport-card-overlay"></div>
+        <div class="sport-card-content">
+          <div class="sport-card-label">All Cuts</div>
+          <h3>MMA Shorts</h3>
+          <p>Sublimated fight shorts for training & competition</p>
+        </div>
+      </div>
+      <div class="sport-card">
+        <img src="https://images.unsplash.com/photo-1616803689943-5601631c7fec?w=600&q=80" alt="Rashguards">
+        <div class="sport-card-overlay"></div>
+        <div class="sport-card-content">
+          <div class="sport-card-label">Long & Short Sleeve</div>
+          <h3>Rashguards</h3>
+          <p>Full sublimation rashguards for BJJ, MMA & more</p>
+        </div>
+      </div>
+      <div class="sport-card">
+        <img src="https://images.unsplash.com/photo-1599058945522-28d584b6f0ff?w=600&q=80" alt="Muay Thai">
+        <div class="sport-card-overlay"></div>
+        <div class="sport-card-content">
+          <div class="sport-card-label">Traditional & Modern</div>
+          <h3>Muay Thai Shorts</h3>
+          <p>Satin & nylon shorts with custom embroidery</p>
+        </div>
+      </div>
+      <div class="sport-card">
+        <img src="https://images.unsplash.com/photo-1544367567-0f2fcb009e0b?w=600&q=80" alt="Boxing">
+        <div class="sport-card-overlay"></div>
+        <div class="sport-card-content">
+          <div class="sport-card-label">Custom Branding</div>
+          <h3>Boxing Trunks</h3>
+          <p>Satin boxing shorts with custom name & logos</p>
+        </div>
+      </div>
+      <div class="sport-card">
+        <img src="https://images.unsplash.com/photo-1517836357463-d25dfeac3438?w=600&q=80" alt="Compression">
+        <div class="sport-card-overlay"></div>
+        <div class="sport-card-content">
+          <div class="sport-card-label">Fight Base Layer</div>
+          <h3>Vale Tudo Shorts</h3>
+          <p>Compression fight shorts for grappling & MMA</p>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- FITNESS WEAR -->
+  <div class="product-section" id="fitnessWear">
+    <div class="sports-header">
+      <div class="section-tag">Fitness & Activewear</div>
+      <h2 class="section-title">Train Hard.<br><em>Look Sharp.</em></h2>
+      <p>Performance activewear built for the gym, the track, and everything in between.</p>
+    </div>
+    <div class="sports-grid">
+      <div class="sport-card">
+        <img src="https://images.unsplash.com/photo-1534438327276-14e5300c3a48?w=600&q=80" alt="Compression">
+        <div class="sport-card-overlay"></div>
+        <div class="sport-card-content">
+          <div class="sport-card-label">Performance Fit</div>
+          <h3>Compression Tights</h3>
+          <p>Full-length & 3/4 tights with custom sublimation</p>
+        </div>
+      </div>
+      <div class="sport-card">
+        <img src="https://images.unsplash.com/photo-1571019614242-c5c5dee9f50b?w=600&q=80" alt="Tank Tops">
+        <div class="sport-card-overlay"></div>
+        <div class="sport-card-content">
+          <div class="sport-card-label">Men's & Women's</div>
+          <h3>Tank Tops</h3>
+          <p>Muscle tees & racerbacks for gym & training</p>
+        </div>
+      </div>
+      <div class="sport-card">
+        <img src="https://images.unsplash.com/photo-1518611012118-696072aa579a?w=600&q=80" alt="Sports Bras">
+        <div class="sport-card-overlay"></div>
+        <div class="sport-card-content">
+          <div class="sport-card-label">Women's Active</div>
+          <h3>Sports Bras</h3>
+          <p>High-support & custom branded activewear</p>
+        </div>
+      </div>
+      <div class="sport-card">
+        <img src="https://images.unsplash.com/photo-1506629082955-511b1aa562c8?w=600&q=80" alt="Golf">
+        <div class="sport-card-overlay"></div>
+        <div class="sport-card-content">
+          <div class="sport-card-label">On The Green</div>
+          <h3>Golf Wear</h3>
+          <p>Polo shirts, trousers & outerwear for golf brands</p>
+        </div>
+      </div>
+      <div class="sport-card">
+        <img src="https://images.unsplash.com/photo-1583454110551-21f2fa2afe61?w=600&q=80" alt="Gym Shorts">
+        <div class="sport-card-overlay"></div>
+        <div class="sport-card-content">
+          <div class="sport-card-label">Training Ready</div>
+          <h3>Gym Shorts</h3>
+          <p>Mesh & woven shorts for any training style</p>
+        </div>
+      </div>
+      <div class="sport-card">
+        <img src="https://images.unsplash.com/photo-1551698618-1dfe5d97d256?w=600&q=80" alt="Tracksuits">
+        <div class="sport-card-overlay"></div>
+        <div class="sport-card-content">
+          <div class="sport-card-label">Warm Up</div>
+          <h3>Training Tracksuits</h3>
+          <p>Warm-up suits & zip jackets for teams & brands</p>
+        </div>
+      </div>
+    </div>
+  </div>
+
 </section>
 
 <!-- CAPABILITIES -->
@@ -908,7 +1178,9 @@
   <h2 class="section-title">Full Custom.<br><em>Start to Finish.</em></h2>
   <div class="cap-grid">
     <div class="cap-image">
-      <img src="https://images.unsplash.com/photo-1504328345606-18bbc8c9d7d1?w=800&q=80" alt="Manufacturing">
+      <video autoplay muted loop playsinline style="width:100%; aspect-ratio:4/5; object-fit:cover; filter:brightness(0.85); border-radius:4px;">
+        <source src="waqiahentp_pindown.io_1787877716.mp4" type="video/mp4">
+      </video>
       <div class="cap-image-tag">Direct Factory</div>
     </div>
     <div class="cap-list">
@@ -1053,6 +1325,17 @@
 <script>
   function toggleMenu() {
     document.getElementById('mobileMenu').classList.toggle('open');
+  }
+
+  function showCategory(id) {
+    // Update active card
+    document.querySelectorAll('.cat-card').forEach(c => c.classList.remove('active'));
+    event.currentTarget.classList.add('active');
+    // Show correct panel
+    document.querySelectorAll('.product-section').forEach(s => s.classList.remove('active'));
+    document.getElementById(id).classList.add('active');
+    // Scroll to products
+    document.getElementById('products-panel').scrollIntoView({ behavior: 'smooth', block: 'start' });
   }
 </script>
 </body>
