@@ -841,7 +841,7 @@
 
   <!-- CATEGORY CARDS -->
   <div class="cat-grid">
-    <div class="cat-card active" onclick="showCategory('teamSports')">
+    <div class="cat-card active" onclick="showCategory('teamSports', this)">
       <img src="https://images.unsplash.com/photo-1574629810360-7efbbe195018?w=800&q=80" alt="Team Sports">
       <div class="cat-overlay"></div>
       <div class="cat-content">
@@ -850,7 +850,7 @@
         <div class="cat-arrow">→</div>
       </div>
     </div>
-    <div class="cat-card" onclick="showCategory('casualWear')">
+    <div class="cat-card" onclick="showCategory('casualWear', this)">
       <img src="https://images.unsplash.com/photo-1556821840-3a63f15732ce?w=800&q=80" alt="Casual Wear">
       <div class="cat-overlay"></div>
       <div class="cat-content">
@@ -859,7 +859,7 @@
         <div class="cat-arrow">→</div>
       </div>
     </div>
-    <div class="cat-card" onclick="showCategory('fightWear')">
+    <div class="cat-card" onclick="showCategory('fightWear', this)">
       <img src="https://images.unsplash.com/photo-1555597673-b21d5c935865?w=800&q=80" alt="Fight Wear">
       <div class="cat-overlay"></div>
       <div class="cat-content">
@@ -868,7 +868,7 @@
         <div class="cat-arrow">→</div>
       </div>
     </div>
-    <div class="cat-card" onclick="showCategory('fitnessWear')">
+    <div class="cat-card" onclick="showCategory('fitnessWear', this)">
       <img src="https://images.unsplash.com/photo-1534438327276-14e5300c3a48?w=800&q=80" alt="Fitness Wear">
       <div class="cat-overlay"></div>
       <div class="cat-content">
@@ -1344,10 +1344,10 @@
     document.getElementById('mobileMenu').classList.toggle('open');
   }
 
-  function showCategory(id) {
+  function showCategory(id, btn) {
     // Update active card
     document.querySelectorAll('.cat-card').forEach(c => c.classList.remove('active'));
-    event.currentTarget.classList.add('active');
+    btn.classList.add('active');
     // Show correct panel
     document.querySelectorAll('.product-section').forEach(s => s.classList.remove('active'));
     document.getElementById(id).classList.add('active');
